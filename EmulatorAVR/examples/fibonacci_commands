@@ -1,0 +1,7 @@
+128 256
+REC_IF_LESS 3 Rr,k,to if(Rr<k)PC=to;
+ADD 1 Rd,Rr Rd=Rr+Rd;
+CLR 1 Rd Rd=0;
+INC 1 Rd Rd=Rd+1;
+MOV 1 Rd,Rs Rd=Rs;
+
