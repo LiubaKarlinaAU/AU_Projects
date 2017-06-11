@@ -1,0 +1,6 @@
+128 256
+MOV 1 Rd,Rs Rd=Rs;
+LDI 1 Rd,k Rd=k;
+REM 2 Rd,Rr1,Rr2 Rd=Rr1%Rr2;
+REC_IF 2 Rr,k if(Rr)PC=k;
+

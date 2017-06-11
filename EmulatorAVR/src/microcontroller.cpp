@@ -25,6 +25,11 @@ MicrocontrollerOutput::MicrocontrollerOutput(Microcontroller *controller) :
                                              microcontroller(controller) {}
 
 
+std::size_t MicrocontrollerOutput::get_registr(std::string reg_name)
+{
+    return static_cast<std::size_t>(*microcontroller->general_registrs[reg_name]);
+}
+
 void MicrocontrollerOutput::show_information(size_t code_cycles)
 {
     size_t choice;
@@ -57,7 +62,7 @@ void MicrocontrollerOutput::show_information(size_t code_cycles)
                 std::string reg_name;
                 std::cin >> reg_name;
                 if (microcontroller->general_registrs.find(reg_name) != microcontroller->general_registrs.end())
-                    std::cout << reg_name << "=" << static_cast<int>(*microcontroller->general_registrs[reg_name]) << std::endl;
+                    std::cout << reg_name << "=" << static_cast<std::size_t>(*microcontroller->general_registrs[reg_name]) << std::endl;
                 else
                     std::cout << "Wrong choice, try again." << std::endl;
             }
@@ -97,11 +102,6 @@ void MicrocontrollerOutput::show_general_registrs()
 
     int in_one_line = 0;
     for (auto &reg_name : all_registr_names) {
-        /*
-        std::cout.width(8);
-        std::cout.setf(std::ios::left);
-        std::cout << std::string(reg_name + "=" + static_cast<int>(*microcontroller->general_registrs[reg_name]));
-        */
          std::cout << reg_name << "=" << static_cast<int>(*microcontroller->general_registrs[reg_name]) << "    ";
 
         in_one_line++;

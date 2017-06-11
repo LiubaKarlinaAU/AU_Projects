@@ -15,6 +15,7 @@ public:
     void run_code(const std::string filename);
 
     void show_information();
+    std::size_t get_registr_value(std::string reg_name);
 private:
     Microcontroller *controller;
     MicrocontrollerOutput *mc_output;

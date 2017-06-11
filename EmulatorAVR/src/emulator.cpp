@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "emulator.h"
 #include "function_execution.h"
 
@@ -18,7 +20,7 @@ void Emulator::load(const std::string filename)
 {
     std::ifstream input(filename);
     if (!input.is_open())
-        throw EmulatorException(__FILE__, "Can't open a file for loadinf emulator function.");
+        throw EmulatorException(__FILE__, "Can't open a file for loading emulator function.");
     create_system(input);
     load_functions(input);
 }
@@ -26,6 +28,11 @@ void Emulator::load(const std::string filename)
 void Emulator::show_information()
 {
     mc_output->show_information(code_cycles);
+}
+
+std::size_t Emulator::get_registr_value(std::string reg_name)
+{
+    return mc_output->get_registr(reg_name);
 }
 
 void Emulator::run_code(const std::string filename)
