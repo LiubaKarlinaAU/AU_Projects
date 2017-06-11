@@ -38,6 +38,7 @@ public:
     MicrocontrollerOutput(Microcontroller *controller);
 
     void show_information(size_t code_cycles);
+    std::size_t get_registr(std::string reg_name);
 private:
     Microcontroller *microcontroller;
 
